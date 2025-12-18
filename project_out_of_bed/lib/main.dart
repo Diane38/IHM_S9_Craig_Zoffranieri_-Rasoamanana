@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project_out_of_bed/pages/home_page.dart';
 import 'package:project_out_of_bed/pages/connexion.dart'; 
 import 'package:project_out_of_bed/pages/inscription.dart'; 
+import 'package:project_out_of_bed/pages/detail_activite.dart'; 
+
 
 
 
@@ -18,11 +20,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Out Of Bed',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      // home: HomePage(),
       
       //pour tester la connexion
       // home: LoginPage(),
       // home: InscriptionPage(),
+
+      home: DetailPage(),
+
 
     );
   }
