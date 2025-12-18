@@ -19,6 +19,11 @@ class MyApp extends StatelessWidget {
       title: 'Out Of Bed',
       debugShowCheckedModeBanner: false,
       home: HomePage(),
+      
+      //pour tester la connexion
+      // home: LoginPage(),
+      // home: InscriptionPage(),
+
     );
   }
 }

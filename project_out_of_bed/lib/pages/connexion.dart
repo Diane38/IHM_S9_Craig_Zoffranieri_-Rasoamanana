@@ -14,18 +14,13 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  //naviguer vers home page
   void _login() {
     if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Connexion réussie !')),
-      );
-
-      Future.delayed(const Duration(milliseconds: 500), () {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
         );
-      });
     }
   }
 

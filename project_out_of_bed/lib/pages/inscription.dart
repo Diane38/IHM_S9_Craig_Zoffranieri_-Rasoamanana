@@ -16,19 +16,13 @@ class _InscriptionPageState extends State<InscriptionPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
 
-
+  //naviguer vers home page
   void _login() {
     if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Connexion réussie !')),
-      );
-
-      Future.delayed(const Duration(milliseconds: 500), () {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
         );
-      });
     }
   }
 
