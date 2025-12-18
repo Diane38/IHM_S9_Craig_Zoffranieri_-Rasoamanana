@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_out_of_bed/pages/home_page.dart';
+import 'package:project_out_of_bed/pages/connexion.dart'; 
+import 'package:project_out_of_bed/pages/inscription.dart'; 
+
+
 
 void main() {
   runApp(const MyApp());
