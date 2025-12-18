@@ -16,7 +16,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
 
-  //naviguer vers home page
+  //fonction pour naviguer vers home page
   void _login() {
     if (_formKey.currentState!.validate()) {
         Navigator.pushReplacement(
@@ -37,6 +37,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                // champs pour pseudo
                 TextFormField(
                   controller: _pseudoController,
                   decoration: const InputDecoration(
@@ -51,6 +52,8 @@ class _InscriptionPageState extends State<InscriptionPage> {
                     return null;
                   },
                 ),
+
+                // champs pour mdp
                 const SizedBox(height: 32),
                 TextFormField(
                   controller: _passwordController,
@@ -69,6 +72,8 @@ class _InscriptionPageState extends State<InscriptionPage> {
                     return null;
                   },
                 ),
+
+                // champs pour conf mdp
                 const SizedBox(height: 32),
                 TextFormField(
                   controller: _confirmPasswordController,
@@ -84,6 +89,8 @@ class _InscriptionPageState extends State<InscriptionPage> {
                     return null;
                   },
                 ),
+
+                // champs pour mail
                 const SizedBox(height: 32),
                 TextFormField(
                   controller: _emailController,
@@ -102,6 +109,8 @@ class _InscriptionPageState extends State<InscriptionPage> {
                     return null;
                   },
                 ),
+
+                // champs pour phone
                 const SizedBox(height: 32),
                 TextFormField(
                   controller: _phoneController,
@@ -117,6 +126,8 @@ class _InscriptionPageState extends State<InscriptionPage> {
                     return null;
                   },
                 ),
+
+                // champs pour bouton
                 const SizedBox(height: 24),
                 SizedBox(
                   width: double.infinity,

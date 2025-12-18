@@ -14,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  //naviguer vers home page
+  //fonction pour naviguer vers home page
   void _login() {
     if (_formKey.currentState!.validate()) {
         Navigator.pushReplacement(
@@ -36,6 +36,8 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+
+                // champs pour pseudo
                 const SizedBox(height: 32),
                 TextFormField(
                   controller: _emailController,
@@ -51,6 +53,8 @@ class _LoginPageState extends State<LoginPage> {
                     return null;
                   },
                 ),
+
+                // champs pour mdp
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: _passwordController,
@@ -69,6 +73,8 @@ class _LoginPageState extends State<LoginPage> {
                     return null;
                   },
                 ),
+
+                // champs pour bouton
                 const SizedBox(height: 24),
                 SizedBox(
                   width: double.infinity,
