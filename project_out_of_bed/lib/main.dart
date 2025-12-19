@@ -3,7 +3,7 @@ import 'package:project_out_of_bed/pages/home_page.dart';
 import 'package:project_out_of_bed/pages/connexion.dart'; 
 import 'package:project_out_of_bed/pages/inscription.dart'; 
 import 'package:project_out_of_bed/pages/detail_activite.dart'; 
-
+import '../data/activites_data.dart';
 
 
 
@@ -26,7 +26,8 @@ class MyApp extends StatelessWidget {
       // home: LoginPage(),
       // home: InscriptionPage(),
 
-      home: DetailPage(),
+      // home: DetailPage(),
+      home: DetailPage(activite: ActivitesData.activites[2])
 
 
     );
