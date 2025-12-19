@@ -1,30 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:project_out_of_bed/ComponentReuse/app_bar_logo.dart';
-import 'package:project_out_of_bed/ComponentReuse/tab_activity.dart';
+import 'package:project_out_of_bed/pages/tab_activity.dart';
+import 'package:project_out_of_bed/pages/profile.dart'; 
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DefaultTabController(
-        length: 3 , 
-        child: Scaffold(
-          appBar: const AppBarLogo(), 
-          body: const TabBarView(
-            children: [
-              TabContentPage(title: 'Actualités'),
-              TabContentPage(title: 'Populaires'),
-              TabContentPage(title: 'Nouveautés'),
-            ],
-          ),
-        ),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: const AppBarLogo(),
+       body: Column(
+          children: [
+            const TabBar(
+              tabs: [
+                Tab(text: 'Actualités'),
+                Tab(text: 'Populaires'),
+                Tab(text: 'Nouveautés'),
+              ],
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  TabContentPage(title: 'Actualités'),
+                  TabContentPage(title: 'Populaires'),
+                  TabContentPage(title: 'Nouveautés'),
+                ],
+              ),
+            ),
+          ], 
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ProfilePage()),
+        );
+      },
+      child: const Icon(Icons.person),
+      ),
       ),
     );
   }

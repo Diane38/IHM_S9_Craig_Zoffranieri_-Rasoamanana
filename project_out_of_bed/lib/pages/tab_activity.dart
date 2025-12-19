@@ -1,33 +1,63 @@
 import 'package:flutter/material.dart';
 
-// vignette d'activité
-class ActivityLabel extends StatelessWidget {
-  final String title;
-  final String description;
-  final String imageUrl;
-  final String duration;
-  final String location;
-  final String crowd;
+// Modèle Activite
+class Activite {
+  final String imagePath;        
+  final String title;            
+  final String description;      
+  final List<Map<String, String>> info;
+  final double? latitude;        
+  final double? longitude;
   final int likes;
   final int comments;
   final int saves;
 
-  const ActivityLabel({
-    super.key,
+  Activite({
+    required this.imagePath,
     required this.title,
     required this.description,
-    required this.imageUrl,
-    required this.duration,
-    required this.location,
-    required this.crowd,
-    required this.likes,
-    required this.comments,
-    required this.saves,
+    required this.info,
+    this.latitude,
+    this.longitude,
+    this.likes = 0,
+    this.comments = 0,
+    this.saves = 0,
+  });
+}
+
+// vignette d'activité
+class ActivityLabel extends StatelessWidget {
+  final Activite activite;
+
+  const ActivityLabel({
+    super.key,
+    required this.activite,
   });
 
-   Widget _buildInteractionBar() {
+  Widget _buildInteractionItem(IconData icon, String count, VoidCallback onTap) {
+    return InkWell(
+      onTap: onTap, 
+      borderRadius: BorderRadius.circular(8), 
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, size: 24, color: Colors.black54),
+            const SizedBox(height: 4),
+            Text(
+              count,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildInteractionBar() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
         color: Colors.yellow.shade200, 
         borderRadius: BorderRadius.circular(8),
@@ -35,24 +65,20 @@ class ActivityLabel extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildInteractionItem(Icons.thumb_up, likes.toString()),
-          _buildInteractionItem(Icons.comment, comments.toString()),
-          _buildInteractionItem(Icons.bookmark, saves.toString()),
+          _buildInteractionItem(Icons.thumb_up, activite.likes.toString(), () {
+            print("Liked");
+          }),
+          _buildInteractionItem(Icons.comment, activite.comments.toString(), () {
+            print("Commented");
+          }),
+          _buildInteractionItem(Icons.bookmark, activite.saves.toString(), () {
+            print("Saved");
+          }),
         ],
       ),
     );
   }
 
-  Widget _buildInteractionItem(IconData icon, String count) {
-    return Column(
-      children: [
-        Icon(icon, size: 24, color: Colors.black54),
-        const SizedBox(height: 4),
-        Text(count, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-      ],
-    );
-  }
-  
   // description details
   Widget _buildDetailActivity(String label, String value) {
     return Padding(
@@ -82,7 +108,7 @@ class ActivityLabel extends StatelessWidget {
               topRight: Radius.circular(10),
             ),
             child: Image.network(
-              imageUrl,
+              activite.imagePath,
               height: 200,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -93,7 +119,7 @@ class ActivityLabel extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: Center(
               child: Text(
-                title,
+                activite.title,
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w900,
@@ -108,7 +134,7 @@ class ActivityLabel extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             color: Colors.grey.shade300, 
             child: Text(
-              description,
+              activite.description,
               style: TextStyle(color: Colors.grey.shade800),
             ),
           ),
@@ -116,11 +142,12 @@ class ActivityLabel extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
-              children: [
-                _buildDetailActivity('Durée', duration),
-                _buildDetailActivity('Lieu', location),
-                _buildDetailActivity('Niveau de foule', crowd),
-              ],
+              children: activite.info
+                  .map((item) => _buildDetailActivity(
+                        item.keys.first,
+                        item.values.first,
+                      ))
+                  .toList(),
             ),
           ),
           
@@ -143,32 +170,41 @@ class TabContentPage extends StatelessWidget {
     required this.title,
   });
 
-  List<ActivityLabel> _buildActivities() {
+  List<Activite> _buildActivities() {
     return [
-      ActivityLabel(
+      Activite(
+        imagePath: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Alta_via_meranese_2005-05.JPG/1200px-Alta_via_meranese_2005-05.JPG',
         title: 'RANDONNEE EN FORET',
         description: 'Une randonnée bucolique pour se détendre dans la nature.',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Alta_via_meranese_2005-05.JPG/1200px-Alta_via_meranese_2005-05.JPG', 
-        duration: '3h',
-        location: 'Seyssinet-Pariset',
-        crowd: '1/5',
+        info: [
+          {'Durée': '3h'},
+          {'Lieu': 'Seyssinet-Pariset'},
+          {'Niveau de foule': '1/5'},
+        ],
+        latitude: 45.1667,
+        longitude: 5.7167,
         likes: 15,
         comments: 3,
         saves: 7,
       ),
-      ActivityLabel(
+      Activite(
+        imagePath: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sala_de_cine.jpg/500px-Sala_de_cine.jpg',
         title: 'Sortie au cinéma',
         description: 'Découvrez les nouveaux films sortis !',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sala_de_cine.jpg/500px-Sala_de_cine.jpg',
-        duration: '',
-        location: 'Grenoble Centre',
-        crowd: '2/5',
+        info: [
+          {'Durée': '2h'},
+          {'Lieu': 'Grenoble Centre'},
+          {'Niveau de foule': '2/5'},
+        ],
+        latitude: 45.1885,
+        longitude: 5.7245,
         likes: 42,
         comments: 12,
         saves: 20,
       ),
     ];
   }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -187,7 +223,9 @@ class TabContentPage extends StatelessWidget {
             ),
           ),
           
-          ..._buildActivities(),
+          ..._buildActivities()
+              .map((activite) => ActivityLabel(activite: activite))
+              .toList(),
           
           Padding(
             padding: const EdgeInsets.only(top: 20.0, bottom: 16.0),
@@ -200,7 +238,9 @@ class TabContentPage extends StatelessWidget {
             ),
           ),
           
-          ..._buildActivities(),
+          ..._buildActivities()
+              .map((activite) => ActivityLabel(activite: activite))
+              .toList(),
         ],
       ),
     );
