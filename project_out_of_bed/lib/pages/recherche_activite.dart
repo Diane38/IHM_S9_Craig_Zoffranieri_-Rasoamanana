@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-List<String> titles = <String>['Voir avec en liste', 'Voir sur GoogleMap'];
+
 
 class RechercheActivite extends StatefulWidget {
   const RechercheActivite({super.key});
@@ -12,7 +12,21 @@ class RechercheActivite extends StatefulWidget {
 
 class _RechercheActiviteState extends State<RechercheActivite> {
   int tabsCount = 2;
+  List<String> titles = <String>['Voir avec en liste', 'Voir sur GoogleMap'];
+  final TextEditingController _searchController = TextEditingController();
 
+  @override
+  void initState(){
+    _searchController.addListener(_searchChanged);
+  }
+
+  _searchChanged() {
+    searchResult();
+  }
+
+  searchResult(){
+
+  }
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -20,34 +34,48 @@ class _RechercheActiviteState extends State<RechercheActivite> {
       length: tabsCount,
       child: Scaffold(
         appBar: _appBarResearch(context),
-        body:
-          TabBarView(
-          children: <Widget>[
-            ListView.builder(
-              itemCount: 25,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  title: Text('${titles[0]} $index'),
-                );
-              },
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            TextField(
+              controller: _searchController,
+            
+
             ),
-            ListView.builder(
-              itemCount: 25,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  title: Text('${titles[1]} $index'),
-                );
-              },
+            Expanded(
+              child: Container(
+                height:MediaQuery.of(context).size.height,
+                child: TabBarView(
+                    children: <Widget>[
+                      Container(
+                        height: 500,
+                        child: ListView.builder(
+                          itemCount: 25,
+                          itemBuilder: (BuildContext context, int index) {
+                            return ListTile(title: Text('${titles[0]} $index'));
+                          },
+                        ),
+                      ),
+                      ListView.builder(
+                        itemCount: 25,
+                        itemBuilder: (BuildContext context, int index) {
+                          return ListTile(title: Text('${titles[1]} $index'));
+                        },
+                      ),
+                    ],
+                  ),
+              ),
             ),
-          ]
-      ),
-    ),
-    );
+              ],
+            ),
+           //bottomNavigationBar: AppBar(), 
+        ),
+      );
   }
 
   PreferredSize _appBarResearch(BuildContext context) {
     return PreferredSize(
-      preferredSize: const Size.fromHeight(250),
+      preferredSize: const Size.fromHeight(200),
       child: AppBar(
         elevation: 0,
         titleSpacing: 16,
