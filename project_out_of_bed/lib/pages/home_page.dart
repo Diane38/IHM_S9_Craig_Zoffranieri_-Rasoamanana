@@ -14,39 +14,43 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:PreferredSize(
-        preferredSize: const Size.fromHeight(200), 
-        child: AppBarLogo()
-        ),
-      body: Row(
-        children: List.generate(tabs.length, (index) {
-          final isSelected = index == selectedIndex;
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(200),
+        child: AppBarLogo(),
+      ),
+      body: Center(
+        child: Row(
+          children: List.generate(tabs.length, (index) {
+            final isSelected = index == selectedIndex;
 
-          return Padding(
-            padding: const EdgeInsets.only(right: 24),
-            child: TextButton(
-              onPressed: () {
-                setState(() => selectedIndex = index);
-              },
-              style: TextButton.styleFrom(
-                foregroundColor: isSelected ? Colors.blue : Colors.grey,
-                textStyle: TextStyle(
-                  fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+            return Padding(
+              padding: const EdgeInsets.only(right: 24),
+              child: TextButton(
+                onPressed: () {
+                  setState(() => selectedIndex = index);
+                },
+                style: TextButton.styleFrom(
+                  foregroundColor: isSelected ? Colors.blue : Colors.grey,
+                  textStyle: TextStyle(
+                    fontWeight: isSelected
+                        ? FontWeight.bold
+                        : FontWeight.normal,
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    Text(tabs[index]),
+                    SizedBox(height: 4),
+
+                    // Soulignement bleu
+                    if (isSelected)
+                      Container(height: 2, width: 24, color: Colors.blue),
+                  ],
                 ),
               ),
-              child: Column(
-                children: [
-                  Text(tabs[index]),
-                  SizedBox(height: 4),
-
-                  // Soulignement bleu
-                  if (isSelected)
-                    Container(height: 2, width: 24, color: Colors.blue),
-                ],
-              ),
-            ),
-          );
-        }),
+            );
+          }),
+        ),
       ),
     );
   }

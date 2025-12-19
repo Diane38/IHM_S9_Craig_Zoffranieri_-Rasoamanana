@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:project_out_of_bed/pages/recherche_activite.dart';
 
 class AppBarLogo extends StatelessWidget implements PreferredSizeWidget {
   const AppBarLogo({super.key});
@@ -46,7 +47,14 @@ class AppBarLogo extends StatelessWidget implements PreferredSizeWidget {
                     ),
                     child: IconButton(
                       icon: Icon(Icons.arrow_forward, color: Colors.white),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RechercheActivite(),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ],
