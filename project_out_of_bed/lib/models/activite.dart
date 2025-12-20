@@ -6,7 +6,9 @@ class Activite {
   final double? latitude;        
   final double? longitude;   
   int likeCount;
-  int saveCount;        
+  int saveCount;   
+  bool isLiked;
+  bool isSaved;     
 
   Activite({
     required this.imagePath,
@@ -17,5 +19,7 @@ class Activite {
     this.longitude,
     this.likeCount = 0,
     this.saveCount = 0,
+    this.isLiked = false,
+    this.isSaved = false
   });
 }
