@@ -100,23 +100,70 @@ class _DetailPageState extends State<DetailPage> {
                 ),
                 SizedBox(height: 16),
 
+
                 // pour like et save
-                Row(
+                Container(
+                padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 255, 193, 111),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+
+                    // LIKE
                     ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(Icons.thumb_up),
-                      label: Text('Like'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 255, 193, 111),
+                        foregroundColor: Colors.white,
+                        elevation: 0,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (widget.activite.isLiked) {
+                            widget.activite.likeCount--;
+                          } else {
+                            widget.activite.likeCount++;
+                          }
+                          widget.activite.isLiked = !widget.activite.isLiked;
+                        });
+                      },
+                      icon: Icon(
+                        Icons.thumb_up,
+                        color: widget.activite.isLiked ? Colors.blue : Colors.white,
+                      ),
+                      label: Text(widget.activite.likeCount.toString()),
                     ),
+
+                    // SAVE
                     ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(Icons.bookmark),
-                      label: Text('Save'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 255, 193, 111),
+                        foregroundColor: Colors.white,
+                        elevation: 0,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (widget.activite.isSaved) {
+                            widget.activite.saveCount--;
+                          } else {
+                            widget.activite.saveCount++;
+                          }
+                          widget.activite.isSaved = !widget.activite.isSaved;
+                        });
+                      },
+                      icon: Icon(
+                        Icons.bookmark,
+                        color: widget.activite.isSaved ? Colors.orange : Colors.white,
+                      ),
+                      label: Text(widget.activite.saveCount.toString()),
                     ),
                   ],
                 ),
-                SizedBox(height: 16),
+              ),
+
+              SizedBox(height: 16),
 
                 // pour Bouton go
                 ElevatedButton(
