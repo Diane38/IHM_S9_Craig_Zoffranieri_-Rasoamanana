@@ -4,7 +4,11 @@ class Activite {
   final String description;      
   final List<Map<String, String>> info; // clés/valeurs (pour durée, lieu, niveau de foule)
   final double? latitude;        
-  final double? longitude;           
+  final double? longitude;   
+  int likeCount;
+  int saveCount;   
+  bool isLiked;
+  bool isSaved;     
 
   Activite({
     required this.imagePath,
@@ -13,5 +17,9 @@ class Activite {
     required this.info,
     this.latitude,
     this.longitude,
+    this.likeCount = 0,
+    this.saveCount = 0,
+    this.isLiked = false,
+    this.isSaved = false
   });
 }
