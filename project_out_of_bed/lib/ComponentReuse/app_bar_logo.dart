@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:project_out_of_bed/pages/recherche_activite.dart';
+import 'package:project_out_of_bed/pages/connexion.dart';
 
 class AppBarLogo extends StatelessWidget implements PreferredSizeWidget {
   const AppBarLogo({super.key});
@@ -8,7 +8,7 @@ class AppBarLogo extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return PreferredSize(
-      preferredSize: const Size.fromHeight(300),
+      preferredSize: const Size.fromHeight(100),
       child: AppBar(
         elevation: 0,
         titleSpacing: 16,
@@ -51,7 +51,7 @@ class AppBarLogo extends StatelessWidget implements PreferredSizeWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const RechercheActivite(),
+                            builder: (context) => const LoginPage(),
                           ),
                         );
                       },
@@ -68,6 +68,5 @@ class AppBarLogo extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

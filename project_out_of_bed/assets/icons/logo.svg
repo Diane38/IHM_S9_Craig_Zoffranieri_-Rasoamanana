@@ -1,13 +1,14 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<!-- Created using Krita: https://krita.org -->
-<svg xmlns="http://www.w3.org/2000/svg" 
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:krita="http://krita.org/namespaces/svg/krita"
-    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-    width="76.2pt"
-    height="72pt"
-    viewBox="0 0 76.2 72">
-<defs/>
-<ellipse id="shape0" transform="translate(33, 6.3)" rx="4.5" ry="4.8" cx="4.5" cy="4.8" fill="#000000" fill-rule="evenodd" stroke="#000000" stroke-width="0.375" stroke-linecap="square" stroke-linejoin="bevel"/><ellipse id="shape1" transform="translate(19.2, 17.1)" rx="1.5" ry="12.45" cx="1.5" cy="12.45" fill="#000000" fill-rule="evenodd" stroke="#000000" stroke-width="0.375" stroke-linecap="square" stroke-linejoin="bevel"/><ellipse id="shape2" transform="translate(16.8, 32.4)" rx="24.15" ry="1.8" cx="24.15" cy="1.8" fill="#000000" fill-rule="evenodd" stroke="#000000" stroke-width="0.375" stroke-linecap="square" stroke-linejoin="bevel"/><ellipse id="shape3" transform="translate(60.3, 25.8)" rx="1.35" ry="8.1" cx="1.35" cy="8.1" fill="#000000" fill-rule="evenodd" stroke="#000000" stroke-width="0.375" stroke-linecap="square" stroke-linejoin="bevel"/><ellipse id="shape4" transform="translate(31.8, 15.9)" rx="5.55" ry="12.15" cx="5.55" cy="12.15" fill="#000000" fill-rule="evenodd" stroke="#000000" stroke-width="0.375" stroke-linecap="square" stroke-linejoin="bevel"/><ellipse id="shape5" transform="translate(19.5, 29.7)" rx="21.45" ry="3.15" cx="21.45" cy="3.15" fill="#000000" fill-rule="evenodd" stroke="#000000" stroke-width="0.375" stroke-linecap="square" stroke-linejoin="bevel"/><ellipse id="shape6" transform="translate(27.6, 17.1)" rx="2.1" ry="5.55" cx="2.1" cy="5.55" fill="#000000" fill-rule="evenodd" stroke="#000000" stroke-width="0.375" stroke-linecap="square" stroke-linejoin="bevel"/><ellipse id="shape7" transform="translate(42.3, 16.8)" rx="2.1" ry="4.95" cx="2.1" cy="4.95" fill="#000000" fill-rule="evenodd" stroke="#000000" stroke-width="0.375" stroke-linecap="square" stroke-linejoin="bevel"/>
+<svg width="93" height="71" viewBox="0 0 93 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="50" width="93" height="13" rx="2" fill="black"/>
+<rect x="25" y="41" width="28" height="6" rx="3" fill="black"/>
+<rect x="46" y="42.2633" width="7" height="25" rx="3" transform="rotate(-2.15593 46 42.2633)" fill="black"/>
+<rect x="34" y="44" width="7" height="25" rx="3" fill="black"/>
+<rect x="7" y="58" width="8" height="13" rx="2" fill="black"/>
+<rect x="78" y="58" width="8" height="13" rx="2" fill="black"/>
+<rect x="25" y="17" width="15" height="30" rx="3" fill="black"/>
+<rect x="53.522" y="3.34949" width="5" height="24.4698" rx="2.5" transform="rotate(50 53.522 3.34949)" fill="black"/>
+<rect x="9.38647" y="7.47632" width="5" height="23.746" rx="2.5" transform="rotate(-50 9.38647 7.47632)" fill="black"/>
+<ellipse cx="33" cy="7" rx="6" ry="7" fill="black"/>
+<rect x="5" y="24" width="11" height="39" rx="2" fill="black"/>
+<rect x="30" y="9" width="5" height="10" rx="2" fill="black"/>
 </svg>
