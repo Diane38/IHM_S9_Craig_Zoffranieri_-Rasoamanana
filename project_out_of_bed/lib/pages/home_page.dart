@@ -44,8 +44,8 @@ class HomePage extends StatelessWidget {
           child: const Icon(Icons.person),
         ),
         
-        //AppBar du bas permettant de se déplacer entre les pages
         
+        //AppBar du bas permettant de se déplacer entre les pages
         bottomNavigationBar: BottomAppBarPage(),
       ),
     );
