@@ -27,7 +27,7 @@ class AppBarLogo extends StatelessWidget implements PreferredSizeWidget {
                   Text(
                     "OUT OF BED",
                     style: TextStyle(
-                      fontSize: 28,
+                      fontSize: 24,
                       fontWeight: FontWeight.w600,
                       letterSpacing: 1.2,
                     ),
@@ -36,11 +36,11 @@ class AppBarLogo extends StatelessWidget implements PreferredSizeWidget {
                   SizedBox(width: 12),
 
                   // SVG (lit + personnage)
-                  SvgPicture.asset('assets/icons/logo.svg', height: 40),
+                  SvgPicture.asset('assets/icons/logo.svg', height: 35),
 
                   Spacer(),
 
-                  // Bouton carré en haut à droite
+                  // Boutons connexion et inscription
                   Row(
                     children: [
                       TextButton(
@@ -52,33 +52,30 @@ class AppBarLogo extends StatelessWidget implements PreferredSizeWidget {
                         }, 
                         child: const Text(
                           "Se connecter",
-                          style: TextStyle(color: Colors.black54, fontSize: 13),
+                          style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      const SizedBox(width: 4),
-                      Container(
+                      Container( 
                         decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const InscriptionPage()),
-                            );
-                            },
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(3),
+                          ),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push( context,
+                              MaterialPageRoute(builder: (context) => const InscriptionPage()),
+                              );
+                              },
                             child: const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                              child: Text(
-                                "S'inscrire",
-                                style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-                                ),
-                              ),
+                              child: Text("S'inscrire", 
+                              style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
                             ),
-                          )
-                        ],
-                      ),
+                          ),
+                        ),
+                      )
+                    ]
+                  ),
                 ],
               ),
               SizedBox(height: 2),

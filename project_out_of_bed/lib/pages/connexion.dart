@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:project_out_of_bed/models/user.dart';
 import 'package:project_out_of_bed/pages/home_page.dart';
+import 'package:project_out_of_bed/pages/profile.dart';
 
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -16,11 +18,18 @@ class _LoginPageState extends State<LoginPage> {
 
   //fonction pour naviguer vers home page
   void _login() {
-    if (_formKey.currentState!.validate()) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
-        );
+    // vérification de l'utilisateur
+    final user = findingUser(_emailController.text, _passwordController.text);
+    
+    if (user != null) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const ProfilePage()),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Pseudo ou mot de passe incorrect')),
+      );
     }
   }
 
