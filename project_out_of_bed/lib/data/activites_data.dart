@@ -13,10 +13,6 @@ class ActivitesData {
       ],
       latitude: 45.1885,
       longitude: 5.7250,
-      likeCount: 12,
-      saveCount: 2,
-      isLiked: false,
-      isSaved: false
     ),
     Activite(
       imagePath: 'assets/nature.jpg',
@@ -29,10 +25,6 @@ class ActivitesData {
       ],
       latitude: 45.9234,
       longitude: 6.1234,
-      likeCount: 7,
-      saveCount: 0,
-      isLiked: false,
-      isSaved: false
     ),
     Activite(
       imagePath: 'assets/nature.jpg',
@@ -45,10 +37,6 @@ class ActivitesData {
       ],
       latitude: 45.3333,
       longitude: 5.5678,
-      likeCount: 15,
-      saveCount: 7,
-      isLiked: false,
-      isSaved: false
     ),
   ];
 }

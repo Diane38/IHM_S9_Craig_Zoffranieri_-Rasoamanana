@@ -5,7 +5,7 @@ class InscriptionPage extends StatefulWidget {
   const InscriptionPage({super.key});
 
   @override
-  _InscriptionPageState createState() => _InscriptionPageState();
+  State<InscriptionPage> createState() => _InscriptionPageState();
 }
 
 class _InscriptionPageState extends State<InscriptionPage> {
