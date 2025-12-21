@@ -17,7 +17,6 @@ class _InscriptionPageState extends State<InscriptionPage> {
   final TextEditingController _confirmPasswordController = TextEditingController();
 
   //fonction pour naviguer vers home page
-  //TODO: login connexion avec le modèle
   void _login() {
     if (_formKey.currentState!.validate()) {
         Navigator.pushReplacement(

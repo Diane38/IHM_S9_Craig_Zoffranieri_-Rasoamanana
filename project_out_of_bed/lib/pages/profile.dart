@@ -24,7 +24,6 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
     super.dispose();
   }
 
-  // Données simulées
   List<Activite> _getPublishedActivities() {
     return [
       Activite(
