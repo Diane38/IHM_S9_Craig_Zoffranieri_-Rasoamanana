@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project_out_of_bed/pages/connexion.dart';
+import 'package:project_out_of_bed/pages/inscription.dart';
 
 class AppBarLogo extends StatelessWidget implements PreferredSizeWidget {
   const AppBarLogo({super.key});
@@ -40,23 +41,44 @@ class AppBarLogo extends StatelessWidget implements PreferredSizeWidget {
                   Spacer(),
 
                   // Bouton carré en haut à droite
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: IconButton(
-                      icon: Icon(Icons.arrow_forward, color: Colors.white),
-                      onPressed: () {
+                  Row(
+                    children: [
+                      TextButton(
+                        onPressed: () {
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginPage(),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
+                        context,
+                        MaterialPageRoute(builder: (context) => const LoginPage()),
+                          );
+                        }, 
+                        child: const Text(
+                          "Se connecter",
+                          style: TextStyle(color: Colors.black54, fontSize: 13),
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      Container(
+                        decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const InscriptionPage()),
+                            );
+                            },
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                              child: Text(
+                                "S'inscrire",
+                                style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                 ],
               ),
               SizedBox(height: 2),
