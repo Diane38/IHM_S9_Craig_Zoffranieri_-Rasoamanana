@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:project_out_of_bed/data/activites_data.dart';
 import 'package:project_out_of_bed/pages/home_page.dart';
+import 'package:provider/provider.dart';
+
+
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ActivitesData(),
+      child: const MyApp(),
+    ),);
 }
 
 class MyApp extends StatelessWidget {

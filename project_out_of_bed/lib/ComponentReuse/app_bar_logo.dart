@@ -76,7 +76,7 @@ class AppBarLogo extends StatelessWidget implements PreferredSizeWidget {
                       )
                     ]
                   ),
-                ],
+                ]
               ),
               SizedBox(height: 2),
             ],
