@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import '../models/activite.dart';
 
-class ActivitesData {
-  static final List<Activite> activites = [
+class ActivitesData extends ChangeNotifier {
+  List<Activite> activites = [
     Activite(
       imagePath: 'assets/nature.jpg',
       title: 'Randonnée en forêt',
@@ -39,4 +40,9 @@ class ActivitesData {
       longitude: 5.5678,
     ),
   ];
+
+  void ajouter(Activite item) {
+    activites.add(item);
+    notifyListeners();
+  }
 }
